@@ -2,17 +2,16 @@ extends CanvasLayer
 
 @onready var hearts_container = $HeartsContainer
 @onready var distance_bar = $DistanceBar
-@onready var death_menu = $DeathMenu  # Asegúrate de conectar este nodo
-@onready var retry_button = $DeathMenu/RetryButton
-@onready var main_menu_button = $DeathMenu/MainMenuButton
+@onready var death_menu = $Death_menu  # Asegúrate de conectar este nodo
+@onready var camera = $"../Player/Camera2D"
+
 
 var full_heart = preload("res://Assets/hearts_hud.png")
 var empty_heart = preload("res://Assets/no_hearts_hud.png")
 
 func _ready() -> void:
-	# Conectar botones a las funciones correspondientes usando Callable
-	retry_button.connect("pressed", Callable(self, "_on_retry_pressed"))
-	main_menu_button.connect("pressed", Callable(self, "_on_main_menu_pressed"))
+	death_menu.hide()
+
 
 
 # Actualiza los corazones según la vida actual
@@ -34,18 +33,12 @@ func update_max_distance(max_distance: float, max_limit: float = 300.0) -> void:
 
 # Muestra el menú de muerte
 func show_death_menu() -> void:
-	death_menu.visible = true
-	get_tree().paused = true  # Pausar la escena
+	death_menu.show()
+	Engine.time_scale = 1
+	camera.pause_camera()
 
 # Oculta el menú de muerte
 func hide_death_menu() -> void:
-	death_menu.visible = false
-	get_tree().paused = false  # Reanudar la escena
-
-# Función para manejar el botón de reintentar
-func _on_retry_pressed() -> void:
-	get_tree().reload_current_scene()  # Recarga la escena actual
-
-# Función para manejar el botón de regresar al menú principal
-func _on_main_menu_pressed() -> void:
-	get_tree().change_scene("res://MainMenu.tscn")  # Cambiar a la escena del menú principal
+	death_menu.hide()
+	Engine.time_scale = 0
+	camera.resume_camera()

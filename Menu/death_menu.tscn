@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd3174bxxad3e"]
+
+[ext_resource type="Script" path="res://Menu/death_menu.gd" id="1_edh8o"]
+[ext_resource type="Shader" path="res://Menu/pause_menu.gdshader" id="1_slgmt"]
+[ext_resource type="Texture2D" uid="uid://dx4i451dn7nx0" path="res://Menu/Menu icons/restart.png" id="2_nuemu"]
+[ext_resource type="Texture2D" uid="uid://gyf4054tx3cv" path="res://Menu/Menu icons/mainMenu.png" id="3_nn6hh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8teo"]
+shader = ExtResource("1_slgmt")
+shader_parameter/amount = 1.371
+
+[sub_resource type="SystemFont" id="SystemFont_tppne"]
+font_names = PackedStringArray("Impact")
+font_weight = 500
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_cc72k"]
+font = SubResource("SystemFont_tppne")
+font_size = 80
+
+[node name="Death_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_edh8o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_s8teo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.591191, 0, 0.050644, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="retry_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_nuemu")
+
+[node name="main_menu_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_nn6hh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_top = 127.0
+offset_right = 231.0
+offset_bottom = 201.0
+grow_horizontal = 2
+text = "Oh no! Has muerto!"
+label_settings = SubResource("LabelSettings_cc72k")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/retry_button" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/main_menu_button" to="." method="_on_main_menu_pressed"]

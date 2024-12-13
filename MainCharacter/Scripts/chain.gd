@@ -43,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# Obtén la distancia del Arduino
 	if arduino_distance:
-		distance_multiplier = 1.0 + (2600.0 - arduino_distance.Distancia) / 2200.0
+		distance_multiplier = 2.0 - (arduino_distance.Distancia - 400.0) / (1800.0 - 400.0)
 		#print(distance_multiplier)
 		emit_signal("max_distance_updated", max_allowed_distance)  # Emitir señal con distancia máxima
 	if flying:

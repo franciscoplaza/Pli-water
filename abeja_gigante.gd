@@ -99,7 +99,7 @@ func _check_animation_frame() -> void:
 	var distance_to_player = global_position.distance_to(player.global_position)
 	if (sprite.frame == 6 or sprite.frame == 7) and distance_to_player < 100.0:
 		if player.has_method("take_damage"):
-			player.take_damage(3)
+			player.take_damage(5)
 		_die()
 	
 	if sprite.animation == "atacar":

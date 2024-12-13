@@ -8,7 +8,7 @@ const MAX_SPEED: float = 400
 const CHAIN_PULL_BASE: float = 20  # Valor base mínimo para el pull
 const CHAIN_PULL_MAX: float = 80  # Valor máximo para el pull
 const DISTANCE_MIN: float = 400  # Distancia mínima
-const DISTANCE_MAX: float = 2400  # Distancia máxima
+const DISTANCE_MAX: float = 1800  # Distancia máxima
 const AIR_FRICTION_X: float = 0.80
 const AIR_FRICTION_Y: float = 1.0
 
@@ -91,4 +91,4 @@ func die() -> void:
 	# Llama al HUD para mostrar el menú de muerte
 	var hud_node = get_node_or_null("../HUD")
 	if hud_node:
-		hud_node.show_death_menu	()
+		hud_node.show_death_menu()

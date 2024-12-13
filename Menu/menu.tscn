@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvdo3t8w383kx"]
+
+[ext_resource type="Script" path="res://Menu/menu.gd" id="1_68qrq"]
+[ext_resource type="Texture2D" uid="uid://cq4apxtey1xwu" path="res://Menu/Menu icons/Menu bg.png" id="2_ttuht"]
+[ext_resource type="Texture2D" uid="uid://hcee3bnlibkn" path="res://Menu/Menu icons/Play.png" id="3_c2c1f"]
+[ext_resource type="Texture2D" uid="uid://kvru0e0dixhy" path="res://Menu/Menu icons/Controls.png" id="4_axiv7"]
+[ext_resource type="Texture2D" uid="uid://e1mphkbgqlmn" path="res://Menu/Menu icons/Quit.png" id="5_5ty45"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_68qrq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ttuht")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -303.0
+offset_right = 152.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 13
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_c2c1f")
+icon_alignment = 1
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("4_axiv7")
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("5_5ty45")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

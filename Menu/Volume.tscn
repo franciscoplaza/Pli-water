@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://28int118qmqh"]
+
+[ext_resource type="Script" path="res://Menu/volume.gd" id="1_r0ih4"]
+[ext_resource type="Texture2D" uid="uid://djkcserncu6kv" path="res://Menu/Menu icons/Options bg.png" id="2_jcw7j"]
+[ext_resource type="Texture2D" uid="uid://di48ihhrjuxm7" path="res://Menu/Menu icons/Volume.png" id="3_gs2p3"]
+[ext_resource type="Texture2D" uid="uid://ghcah5wchga3" path="res://Menu/Menu icons/Back.png" id="5_n8tk0"]
+
+[node name="Volume" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0ih4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jcw7j")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.241
+anchor_right = 0.5
+anchor_bottom = 0.241
+offset_left = -199.5
+offset_top = -45.168
+offset_right = 199.5
+offset_bottom = 44.832
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gs2p3")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.857
+anchor_right = 0.5
+anchor_bottom = 0.857
+offset_left = -149.0
+offset_top = -36.3361
+offset_right = 149.0
+offset_bottom = 36.6639
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("5_n8tk0")
+
+[node name="HSlider" type="HSlider" parent="."]
+modulate = Color(1, 0.7153, 0.89968, 1)
+self_modulate = Color(0.857313, 0.178055, 0.654185, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.5
+offset_top = -8.0
+offset_right = 204.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
