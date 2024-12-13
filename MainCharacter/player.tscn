@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ah0148e6txl"]
+
+[ext_resource type="Texture2D" uid="uid://dpj08u5xvp7gi" path="res://Assets/pot.png" id="1_gia1f"]
+[ext_resource type="Script" path="res://MainCharacter/Scripts/player.gd" id="1_j6w1k"]
+[ext_resource type="AudioStream" uid="uid://dyb5wpo78a6v4" path="res://Musica/DañoPlanta.wav" id="3_tt2ff"]
+[ext_resource type="AudioStream" uid="uid://bpi6lgf46c6hc" path="res://Musica/Mordida.wav" id="4_mrafj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2ygf"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -17)
+collision_layer = 2
+collision_mask = 41
+script = ExtResource("1_j6w1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_gia1f")
+offset = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o2ygf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tt2ff")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mrafj")

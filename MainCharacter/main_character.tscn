@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4j2tg0g4e2wq"]
+
+[ext_resource type="PackedScene" uid="uid://0ah0148e6txl" path="res://MainCharacter/player.tscn" id="1_354cd"]
+[ext_resource type="Script" path="res://MainCharacter/Scripts/main_character.gd" id="1_ml8yj"]
+[ext_resource type="PackedScene" uid="uid://r1vobbg2562v" path="res://MainCharacter/chain.tscn" id="2_6rce1"]
+[ext_resource type="Script" path="res://MainCharacter/Scripts/camera_2d.gd" id="3_7e5ck"]
+[ext_resource type="PackedScene" uid="uid://hxa8x75pyxam" path="res://Arduino/ArduinoDistance.tscn" id="4_tvb51"]
+[ext_resource type="PackedScene" uid="uid://d144nwq6aeww3" path="res://Hud/hud.tscn" id="5_rc6qp"]
+
+[node name="MainCharacter" type="Node2D"]
+script = ExtResource("1_ml8yj")
+
+[node name="Player" parent="." instance=ExtResource("1_354cd")]
+position = Vector2(640, 360)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("3_7e5ck")
+
+[node name="Chain" parent="Player" instance=ExtResource("2_6rce1")]
+position = Vector2(0, -6)
+
+[node name="ArduinoDistance" parent="Player" instance=ExtResource("4_tvb51")]
+
+[node name="HUD" parent="." instance=ExtResource("5_rc6qp")]

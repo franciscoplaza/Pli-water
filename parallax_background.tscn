@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3nf7ijjesgjp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ompap"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y4wca"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = SubResource("CompressedTexture2D_ompap")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = SubResource("CompressedTexture2D_y4wca")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hxa8x75pyxam"]
+
+[ext_resource type="Script" path="res://Arduino/ArduinoDistance.cs" id="1_ea27p"]
+
+[node name="ArduinoDistance" type="Node2D"]
+script = ExtResource("1_ea27p")

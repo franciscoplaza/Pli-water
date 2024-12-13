@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhvwwsnrd2gd1"]
+
+[ext_resource type="Texture2D" uid="uid://dpj08u5xvp7gi" path="res://Assets/pot.png" id="1_0ql8e"]
+[ext_resource type="PackedScene" uid="uid://b4j2tg0g4e2wq" path="res://MainCharacter/main_character.tscn" id="2_ijy55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8g6s"]
+size = Vector2(33, 31)
+
+[node name="prueba" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_j8g6s")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_0ql8e")
+
+[node name="MainCharacter" parent="." instance=ExtResource("2_ijy55")]
+position = Vector2(0, -13)

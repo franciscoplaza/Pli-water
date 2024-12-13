@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://r1vobbg2562v"]
+
+[ext_resource type="Script" path="res://MainCharacter/Scripts/chain.gd" id="1_515tu"]
+[ext_resource type="Texture2D" uid="uid://dow4co13p5xii" path="res://Assets/neck.png" id="2_5qee4"]
+[ext_resource type="Texture2D" uid="uid://csuxg6b5ku407" path="res://Assets/cabeza cerrada.png" id="3_rfyam"]
+[ext_resource type="Texture2D" uid="uid://8oiosn5hs1ip" path="res://Assets/head.png" id="3_uju7r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0dko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rfyam")
+}],
+"loop": true,
+"name": &"hooked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uju7r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sjv6o"]
+radius = 15.0333
+
+[node name="Chain" type="Node2D"]
+script = ExtResource("1_515tu")
+
+[node name="Links" type="Sprite2D" parent="."]
+z_index = -1
+texture_repeat = 2
+position = Vector2(0, 31)
+texture = ExtResource("2_5qee4")
+centered = false
+offset = Vector2(-2, -15)
+region_enabled = true
+region_rect = Rect2(14, 0, 4, 32)
+
+[node name="Tip" type="CharacterBody2D" parent="."]
+collision_layer = 4
+
+[node name="Hook" type="AnimatedSprite2D" parent="Tip"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f0dko")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+shape = SubResource("CircleShape2D_sjv6o")
